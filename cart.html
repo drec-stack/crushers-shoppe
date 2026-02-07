@@ -3,141 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Корзина - Crushers Shoppe</title>
+    <title>Crushers Shoppe - Корзина</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="cart.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div id="header-container"></div>
-    
-    <main class="main-content">
-        <div class="container">
-            <div class="cart-header">
-                <h1>Корзина покупок</h1>
-                <div class="breadcrumbs">
-                    <a href="index.html">Главная</a> / <span>Корзина</span>
-                </div>
-            </div>
-            
-            <div class="cart-container">
-                <div class="cart-items-section">
-                    <div class="cart-section-header">
-                        <h2>Товары в корзине (<span id="cart-items-count">0</span>)</h2>
-                        <button class="btn-secondary" id="clear-cart">Очистить корзину</button>
-                    </div>
-                    
-                    <div class="cart-items-list" id="cart-items-list">
-                        <!-- Товары будут загружены динамически -->
-                        <div class="empty-cart-message" id="empty-cart-message">
-                            <div class="empty-cart-icon">
-                                <i class="fas fa-shopping-bag"></i>
-                            </div>
-                            <h3>Ваша корзина пуста</h3>
-                            <p>Добавьте товары из каталога, чтобы продолжить покупки</p>
-                            <a href="catalog.html" class="btn-primary">Перейти в каталог</a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="cart-summary-section">
-                    <div class="cart-summary">
-                        <h2>Итог заказа</h2>
-                        
-                        <div class="summary-row">
-                            <span>Товары (<span id="summary-items-count">0</span>)</span>
-                            <span id="summary-items-price">0 руб.</span>
-                        </div>
-                        
-                        <div class="summary-row">
-                            <span>Доставка</span>
-                            <div class="delivery-options">
-                                <select id="delivery-type">
-                                    <option value="standard">Стандартная (5-7 дней) - 300 руб.</option>
-                                    <option value="express">Экспресс (2-3 дня) - 600 руб.</option>
-                                    <option value="pickup">Самовывоз - бесплатно</option>
-                                </select>
-                            </div>
-                        </div>
-                        
-                        <div class="summary-row">
-                            <span>Скидка</span>
-                            <span id="summary-discount">0 руб.</span>
-                        </div>
-                        
-                        <div class="summary-total">
-                            <span>Итого к оплате:</span>
-                            <span class="total-price" id="summary-total-price">0 руб.</span>
-                        </div>
-                        
-                        <button class="btn-primary btn-large btn-full" id="checkout-btn">Перейти к оформлению</button>
-                        
-                        <div class="promo-code-section">
-                            <h3>Промокод</h3>
-                            <div class="promo-input">
-                                <input type="text" id="promo-code" placeholder="Введите промокод">
-                                <button class="btn-secondary" id="apply-promo">Применить</button>
-                            </div>
-                            <div class="promo-message" id="promo-message"></div>
-                        </div>
-                        
-                        <div class="payment-methods-summary">
-                            <h3>Способы оплаты</h3>
-                            <div class="payment-icons">
-                                <i class="fab fa-cc-visa"></i>
-                                <i class="fab fa-cc-mastercard"></i>
-                                <i class="fab fa-cc-paypal"></i>
-                                <i class="fab fa-cc-apple-pay"></i>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="cart-features">
-                        <div class="feature">
-                            <div class="feature-icon">
-                                <i class="fas fa-shipping-fast"></i>
-                            </div>
-                            <div class="feature-info">
-                                <h4>Бесплатная доставка</h4>
-                                <p>При заказе от 5000 рублей</p>
-                            </div>
-                        </div>
-                        
-                        <div class="feature">
-                            <div class="feature-icon">
-                                <i class="fas fa-undo"></i>
-                            </div>
-                            <div class="feature-info">
-                                <h4>Легкий возврат</h4>
-                                <p>Возврат в течение 30 дней</p>
-                            </div>
-                        </div>
-                        
-                        <div class="feature">
-                            <div class="feature-icon">
-                                <i class="fas fa-shield-alt"></i>
-                            </div>
-                            <div class="feature-info">
-                                <h4>Безопасная оплата</h4>
-                                <p>Ваши данные защищены</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="recommended-section">
-                <h2>Рекомендуемые товары</h2>
-                <div class="recommended-products" id="recommended-products">
-                    <!-- Рекомендованные товары будут загружены динамически -->
-                </div>
+    <!-- Header -->
+    <div id="header"></div>
+
+    <!-- Cart Container -->
+    <div class="cart-container">
+        <h1><i class="fas fa-shopping-cart"></i> Ваша корзина</h1>
+        
+        <div id="cartContent">
+            <!-- Cart content will be loaded by JavaScript -->
+            <div class="cart-empty">
+                <i class="fas fa-shopping-cart"></i>
+                <h2>Ваша корзина пуста</h2>
+                <p>Добавьте товары из каталога, чтобы продолжить покупки</p>
+                <a href="catalog.html" class="btn-primary">Перейти в каталог</a>
             </div>
         </div>
-    </main>
-    
-    <div id="footer-container"></div>
-    
+    </div>
+
+    <!-- Footer -->
+    <div id="footer"></div>
+
     <script src="script.js"></script>
     <script src="cart.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('header.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('header').innerHTML = data;
+                    document.querySelectorAll('.nav-link').forEach(link => {
+                        if(link.getAttribute('href') === 'cart.html') {
+                            link.classList.add('active');
+                        }
+                    });
+                });
+
+            fetch('footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer').innerHTML = data;
+                });
+
+            // Загрузка корзины
+            loadCart();
+        });
+    </script>
 </body>
 </html>
