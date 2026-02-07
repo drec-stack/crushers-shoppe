@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vogue Threads - Каталог</title>
+    <title>Crushers Shoppe - Каталог</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Header -->
@@ -14,6 +14,11 @@
 
     <!-- Catalog Container -->
     <div class="catalog-container">
+        <div class="catalog-header">
+            <h1>Каталог</h1>
+            <p>Черно-белая коллекция одежды и аксессуаров</p>
+        </div>
+
         <!-- Filters -->
         <aside class="filters-sidebar">
             <div class="filter-section">
@@ -29,11 +34,11 @@
                     </label>
                     <label class="filter-option">
                         <input type="checkbox">
-                        <span>Платья</span>
+                        <span>Футболки</span>
                     </label>
                     <label class="filter-option">
                         <input type="checkbox">
-                        <span>Блузы и рубашки</span>
+                        <span>Рубашки</span>
                     </label>
                     <label class="filter-option">
                         <input type="checkbox">
@@ -41,7 +46,7 @@
                     </label>
                     <label class="filter-option">
                         <input type="checkbox">
-                        <span>Юбки</span>
+                        <span>Костюмы</span>
                     </label>
                 </div>
             </div>
@@ -50,21 +55,29 @@
                 <h3>Цвет</h3>
                 <div class="filter-options">
                     <label class="filter-option">
-                        <input type="checkbox">
+                        <input type="checkbox" checked>
                         <span>Черный</span>
                     </label>
                     <label class="filter-option">
-                        <input type="checkbox">
+                        <input type="checkbox" checked>
                         <span>Белый</span>
-                    </label>
-                    <label class="filter-option">
-                        <input type="checkbox">
-                        <span>Бежевый</span>
                     </label>
                     <label class="filter-option">
                         <input type="checkbox">
                         <span>Серый</span>
                     </label>
+                </div>
+            </div>
+
+            <div class="filter-section">
+                <h3>Цена</h3>
+                <div class="price-range">
+                    <input type="range" min="0" max="50000" value="25000" class="price-slider" id="priceRange">
+                    <div class="price-values">
+                        <span>0 ₽</span>
+                        <span id="currentPrice">25000 ₽</span>
+                        <span>50000 ₽</span>
+                    </div>
                 </div>
             </div>
 
@@ -79,16 +92,11 @@
                 </div>
             </div>
 
-            <button class="apply-filters">Применить фильтры</button>
+            <button class="apply-filters-btn" id="applyFilters">Применить фильтры</button>
         </aside>
 
         <!-- Products -->
         <main class="catalog-main">
-            <div class="catalog-header">
-                <h1>Каталог одежды</h1>
-                <p>Более 200 моделей для создания идеального гардероба</p>
-            </div>
-
             <div class="catalog-controls">
                 <div class="sort-controls">
                     <label for="sort">Сортировать:</label>
@@ -99,11 +107,16 @@
                         <option value="new">Новинки</option>
                     </select>
                 </div>
+                <div class="view-controls">
+                    <span id="productsCount">12 товаров</span>
+                </div>
             </div>
 
             <div class="products-grid" id="productsGrid">
                 <!-- Products loaded by JavaScript -->
-                <div class="loading">Загрузка...</div>
+                <div class="loading">
+                    <div class="spinner"></div>
+                </div>
             </div>
         </main>
     </div>
@@ -114,19 +127,19 @@
     <script src="script.js"></script>
     <script>
         // Product data
-        const clothingProducts = [
-            { id: 1, name: "Шерстяное пальто", price: 15990, category: "outerwear", image: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" },
-            { id: 2, name: "Шелковое платье", price: 12990, category: "dresses", image: "https://images.unsplash.com/photo-1539008835657-9e8e9680c956?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" },
-            { id: 3, name: "Белая рубашка", price: 6990, category: "shirts", image: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" },
-            { id: 4, name: "Кожаная куртка", price: 22990, category: "outerwear", image: "https://images.unsplash.com/photo-1551028719-00167b16eac5?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" },
-            { id: 5, name: "Широкие брюки", price: 8990, category: "pants", image: "https://images.unsplash.com/photo-1542272604-787c3835535d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" },
-            { id: 6, name: "Миди-юбка", price: 7590, category: "skirts", image: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" },
-            { id: 7, name: "Кашемировый свитер", price: 11990, category: "knitwear", image: "https://images.unsplash.com/photo-1576566588028-4147f3842f27?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" },
-            { id: 8, name: "Вечернее платье", price: 18990, category: "dresses", image: "https://images.unsplash.com/photo-1566174053879-31528523f8ae?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" },
-            { id: 9, name: "Джинсы", price: 8990, category: "pants", image: "https://images.unsplash.com/photo-1542272604-787c3835535d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" },
-            { id: 10, name: "Тренч", price: 13990, category: "outerwear", image: "https://images.unsplash.com/photo-1551028719-00167b16eac5?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" },
-            { id: 11, name: "Блуза с рюшами", price: 5990, category: "blouses", image: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" },
-            { id: 12, name: "Костюм", price: 24990, category: "suits", image: "https://images.unsplash.com/photo-1595777457583-95e059d581b8?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" }
+        const products = [
+            { id: 1, name: "Черный оверсайз худи", price: 8990, category: "hoodies", color: "black", size: ["S", "M", "L", "XL"], image: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", badge: "Essentials" },
+            { id: 2, name: "Белая футболка с принтом", price: 4990, category: "tshirts", color: "white", size: ["XS", "S", "M", "L"], image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", badge: null },
+            { id: 3, name: "Черная кожаная куртка", price: 34990, category: "jackets", color: "black", size: ["S", "M", "L"], image: "https://images.unsplash.com/photo-1551028719-00167b16eac5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", badge: "Premium" },
+            { id: 4, name: "Серый шерстяной костюм", price: 28990, category: "suits", color: "gray", size: ["M", "L", "XL"], image: "https://images.unsplash.com/photo-1594938350601-4adf1f8a1c5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", badge: "Premium" },
+            { id: 5, name: "Белая рубашка оверсайз", price: 6990, category: "shirts", color: "white", size: ["XS", "S", "M", "L"], image: "https://images.unsplash.com/photo-1596755094514-f87e34085b2c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", badge: null },
+            { id: 6, name: "Черные кожаные брюки", price: 15990, category: "pants", color: "black", size: ["S", "M", "L"], image: "https://images.unsplash.com/photo-1542272604-787c3835535d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", badge: "Limited" },
+            { id: 7, name: "Черное пальто шерсть", price: 23990, category: "coats", color: "black", size: ["M", "L", "XL"], image: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", badge: "Premium" },
+            { id: 8, name: "Белый свитер кашемир", price: 12990, category: "sweaters", color: "white", size: ["XS", "S", "M", "L"], image: "https://images.unsplash.com/photo-1576566588028-4147f3842f27?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", badge: null },
+            { id: 9, name: "Черный спортивный костюм", price: 14990, category: "tracksuits", color: "black", size: ["S", "M", "L", "XL"], image: "https://images.unsplash.com/photo-1551028719-00167b16eac5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", badge: "Essentials" },
+            { id: 10, name: "Бежевый тренч", price: 18990, category: "coats", color: "gray", size: ["S", "M", "L"], image: "https://images.unsplash.com/photo-1594938350601-4adf1f8a1c5f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", badge: null },
+            { id: 11, name: "Черная базовая футболка", price: 2990, category: "tshirts", color: "black", size: ["XS", "S", "M", "L", "XL"], image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", badge: "Essentials" },
+            { id: 12, name: "Серый кардиган", price: 8990, category: "sweaters", color: "gray", size: ["S", "M", "L"], image: "https://images.unsplash.com/photo-1576566588028-4147f3842f27?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80", badge: null }
         ];
 
         document.addEventListener('DOMContentLoaded', function() {
@@ -147,39 +160,21 @@
                     document.getElementById('footer').innerHTML = data;
                 });
 
-            // Load products
-            renderProducts(clothingProducts);
-            
-            // Setup filters
-            document.querySelector('.apply-filters').addEventListener('click', applyFilters);
-            document.querySelectorAll('.size-btn').forEach(btn => {
-                btn.addEventListener('click', function() {
-                    document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
-                    this.classList.add('active');
-                });
-            });
-            
-            // Setup sorting
-            document.getElementById('sort').addEventListener('change', function() {
-                let sorted = [...clothingProducts];
-                switch(this.value) {
-                    case 'price-low': sorted.sort((a, b) => a.price - b.price); break;
-                    case 'price-high': sorted.sort((a, b) => b.price - a.price); break;
-                    case 'new': sorted.reverse(); break;
-                }
-                renderProducts(sorted);
-            });
+            renderProducts(products);
+            setupFilters();
+            setupSorting();
         });
 
-        function renderProducts(products) {
+        function renderProducts(productsToRender) {
             const grid = document.getElementById('productsGrid');
             grid.innerHTML = '';
             
-            products.forEach(product => {
+            productsToRender.forEach(product => {
                 const productHTML = `
-                    <a href="#" class="product-card" onclick="event.preventDefault(); showProductDetail(${product.id})">
+                    <a href="#" class="product-card" onclick="event.preventDefault(); addToCartFromCatalog(${product.id})">
                         <div class="product-image">
                             <img src="${product.image}" alt="${product.name}">
+                            ${product.badge ? `<div class="product-badge">${product.badge}</div>` : ''}
                         </div>
                         <div class="product-info">
                             <h3>${product.name}</h3>
@@ -189,16 +184,65 @@
                 `;
                 grid.innerHTML += productHTML;
             });
+            
+            document.getElementById('productsCount').textContent = `${productsToRender.length} товаров`;
         }
 
-        function applyFilters() {
-            const selectedSizes = document.querySelector('.size-btn.active')?.textContent;
-            // In real app, apply actual filtering logic
-            showToast('Фильтры применены', 'success');
+        function setupFilters() {
+            // Price range
+            const priceSlider = document.getElementById('priceRange');
+            const currentPrice = document.getElementById('currentPrice');
+            
+            priceSlider.addEventListener('input', function() {
+                currentPrice.textContent = `${parseInt(this.value).toLocaleString()} ₽`;
+            });
+            
+            // Size buttons
+            document.querySelectorAll('.size-btn').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+            
+            // Apply filters button
+            document.getElementById('applyFilters').addEventListener('click', function() {
+                const maxPrice = parseInt(priceSlider.value);
+                const selectedSize = document.querySelector('.size-btn.active')?.textContent;
+                
+                let filtered = products.filter(p => p.price <= maxPrice);
+                
+                if (selectedSize) {
+                    filtered = filtered.filter(p => p.size.includes(selectedSize));
+                }
+                
+                renderProducts(filtered);
+                showToast(`Найдено ${filtered.length} товаров`, 'success');
+            });
         }
 
-        function showProductDetail(id) {
-            const product = clothingProducts.find(p => p.id === id);
+        function setupSorting() {
+            document.getElementById('sort').addEventListener('change', function() {
+                let sorted = [...products];
+                
+                switch(this.value) {
+                    case 'price-low':
+                        sorted.sort((a, b) => a.price - b.price);
+                        break;
+                    case 'price-high':
+                        sorted.sort((a, b) => b.price - a.price);
+                        break;
+                    case 'new':
+                        sorted.reverse();
+                        break;
+                }
+                
+                renderProducts(sorted);
+            });
+        }
+
+        function addToCartFromCatalog(id) {
+            const product = products.find(p => p.id === id);
             if (product) {
                 addToCart(product.id, product.name, product.price, product.image);
             }
