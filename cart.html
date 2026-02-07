@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crushers Shoppe - Корзина</title>
+    <title>Vogue Threads - Корзина</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="cart.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Header -->
@@ -15,16 +14,32 @@
 
     <!-- Cart Container -->
     <div class="cart-container">
-        <h1><i class="fas fa-shopping-cart"></i> Ваша корзина</h1>
+        <h1>Корзина</h1>
         
         <div id="cartContent">
-            <!-- Cart content will be loaded by JavaScript -->
+            <!-- Cart items will be loaded by JavaScript -->
             <div class="cart-empty">
-                <i class="fas fa-shopping-cart"></i>
-                <h2>Ваша корзина пуста</h2>
-                <p>Добавьте товары из каталога, чтобы продолжить покупки</p>
+                <i class="fas fa-shopping-bag"></i>
+                <h3>Ваша корзина пуста</h3>
+                <p>Добавьте товары из каталога</p>
                 <a href="catalog.html" class="btn-primary">Перейти в каталог</a>
             </div>
+        </div>
+        
+        <div class="cart-summary" id="cartSummary" style="display: none;">
+            <div class="summary-row">
+                <span>Товары:</span>
+                <span id="subtotal">0 ₽</span>
+            </div>
+            <div class="summary-row">
+                <span>Доставка:</span>
+                <span>Бесплатно</span>
+            </div>
+            <div class="summary-row" style="font-weight: 600;">
+                <span>Итого:</span>
+                <span id="total">0 ₽</span>
+            </div>
+            <a href="checkout.html" class="checkout-btn">Оформить заказ</a>
         </div>
     </div>
 
@@ -32,7 +47,6 @@
     <div id="footer"></div>
 
     <script src="script.js"></script>
-    <script src="cart.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             fetch('header.html')
@@ -52,9 +66,65 @@
                     document.getElementById('footer').innerHTML = data;
                 });
 
-            // Загрузка корзины
             loadCart();
         });
+
+        function loadCart() {
+            const cart = JSON.parse(localStorage.getItem('cart')) || [];
+            const container = document.getElementById('cartContent');
+            const summary = document.getElementById('cartSummary');
+            
+            if (cart.length === 0) {
+                container.innerHTML = `
+                    <div class="cart-empty">
+                        <i class="fas fa-shopping-bag"></i>
+                        <h3>Ваша корзина пуста</h3>
+                        <p>Добавьте товары из каталога</p>
+                        <a href="catalog.html" class="btn-primary">Перейти в каталог</a>
+                    </div>
+                `;
+                summary.style.display = 'none';
+                return;
+            }
+            
+            let html = '<div class="cart-items">';
+            let subtotal = 0;
+            
+            cart.forEach(item => {
+                const itemTotal = item.price * item.quantity;
+                subtotal += itemTotal;
+                
+                html += `
+                    <div class="cart-item">
+                        <div class="cart-item-image">
+                            <img src="${item.image}" alt="${item.name}">
+                        </div>
+                        <div class="cart-item-info">
+                            <h3>${item.name}</h3>
+                            <p class="product-price">${item.price.toLocaleString()} ₽</p>
+                            <div class="cart-item-quantity">
+                                <button class="quantity-btn" onclick="updateQuantity(${item.id}, ${item.quantity - 1})">-</button>
+                                <span>${item.quantity}</span>
+                                <button class="quantity-btn" onclick="updateQuantity(${item.id}, ${item.quantity + 1})">+</button>
+                                <button onclick="removeFromCart(${item.id})" style="margin-left: 1rem; color: var(--gray-dark);">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div style="text-align: right;">
+                            <h3>${itemTotal.toLocaleString()} ₽</h3>
+                        </div>
+                    </div>
+                `;
+            });
+            
+            html += '</div>';
+            container.innerHTML = html;
+            
+            document.getElementById('subtotal').textContent = subtotal.toLocaleString() + ' ₽';
+            document.getElementById('total').textContent = subtotal.toLocaleString() + ' ₽';
+            summary.style.display = 'block';
+        }
     </script>
 </body>
 </html>
