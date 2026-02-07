@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crushers Shoppe - Главная</title>
+    <title>Vogue Threads - Магазин одежды</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Header -->
@@ -15,75 +15,98 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <h1>CRUSHERS SHOPPE</h1>
-            <p class="tagline">Эксклюзивные кроссовки для настоящих ценителей</p>
-            <p>Откройте для себя мир уникального стиля и непревзойденного комфорта</p>
-            <a href="catalog.html" class="btn-primary">В каталог</a>
+            <h1>VOGUE THREADS</h1>
+            <p class="tagline">Современная одежда для уверенных в себе</p>
+            <p>Эксклюзивные коллекции, качественные материалы и неповторимый стиль</p>
+            <a href="catalog.html" class="btn-primary">Коллекция 2024</a>
         </div>
         <div class="hero-image">
             <div class="gradient-circle"></div>
-            <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Кроссовки премиум класса">
+            <img src="https://images.unsplash.com/photo-1445205170230-053b83016050?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Современная одежда">
         </div>
     </section>
 
-    <!-- Features Section -->
+    <!-- Collections Section -->
+    <section class="collections">
+        <h2>Коллекции</h2>
+        <div class="collections-grid">
+            <a href="catalog.html?category=women" class="collection-card">
+                <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Женская одежда">
+                <div class="collection-overlay">
+                    <h3>Женская коллекция</h3>
+                    <p>Изысканные модели</p>
+                </div>
+            </a>
+            <a href="catalog.html?category=men" class="collection-card">
+                <img src="https://images.unsplash.com/photo-1520975916090-3105956dac38?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Мужская одежда">
+                <div class="collection-overlay">
+                    <h3>Мужская коллекция</h3>
+                    <p>Стиль и комфорт</p>
+                </div>
+            </a>
+            <a href="catalog.html?category=new" class="collection-card">
+                <img src="https://images.unsplash.com/photo-1509319117193-57bab727e09d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Новинки">
+                <div class="collection-overlay">
+                    <h3>Новинки</h3>
+                    <p>Свежие поступления</p>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- Features -->
     <section class="features">
-        <h2>Почему выбирают нас</h2>
-        <div class="features-grid">
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-shipping-fast"></i>
-                </div>
-                <h3>Быстрая доставка</h3>
-                <p>Доставка по всей России за 2-7 дней</p>
+        <div class="feature">
+            <div class="feature-icon">
+                <i class="fas fa-truck"></i>
             </div>
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-shield-alt"></i>
-                </div>
-                <h3>Гарантия качества</h3>
-                <p>Все товары сертифицированы и имеют гарантию</p>
+            <h3>Быстрая доставка</h3>
+            <p>По России за 2-7 дней</p>
+        </div>
+        <div class="feature">
+            <div class="feature-icon">
+                <i class="fas fa-undo"></i>
             </div>
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-exchange-alt"></i>
-                </div>
-                <h3>Легкий возврат</h3>
-                <p>Возврат в течение 30 дней без вопросов</p>
+            <h3>Легкий возврат</h3>
+            <p>30 дней на возврат</p>
+        </div>
+        <div class="feature">
+            <div class="feature-icon">
+                <i class="fas fa-shield-alt"></i>
             </div>
-            <div class="feature-card">
-                <div class="feature-icon">
-                    <i class="fas fa-headset"></i>
-                </div>
-                <h3>Поддержка 24/7</h3>
-                <p>Наша команда всегда готова помочь вам</p>
+            <h3>Гарантия качества</h3>
+            <p>Проверенные материалы</p>
+        </div>
+        <div class="feature">
+            <div class="feature-icon">
+                <i class="fas fa-headset"></i>
             </div>
+            <h3>Поддержка</h3>
+            <p>Помощь 24/7</p>
         </div>
     </section>
 
-    <!-- New Arrivals -->
-    <section class="new-arrivals">
-        <div class="section-header">
-            <h2>Новые поступления</h2>
-            <a href="catalog.html" class="view-all">Смотреть все →</a>
-        </div>
-        <div class="products-grid" id="new-arrivals">
-            <!-- Products will be loaded by JavaScript -->
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="about-section">
+    <!-- About -->
+    <section class="about">
         <div class="about-content">
-            <h2>О Crushers Shoppe</h2>
-            <p>Crushers Shoppe — это не просто магазин кроссовок, это сообщество людей, ценящих уникальный стиль, качество и комфорт. Мы собираем лучшие модели от ведущих мировых брендов и молодых перспективных дизайнеров.</p>
-            <p>Наша миссия — предоставить каждому клиенту возможность выразить свою индивидуальность через обувь, которая не только выглядит стильно, но и обеспечивает непревзойденный комфорт в течение всего дня.</p>
-            <a href="catalog.html" class="btn-secondary">Исследовать коллекцию</a>
+            <h2>О бренде Vogue Threads</h2>
+            <p>Мы создаем одежду для тех, кто ценит качество, комфорт и современный дизайн. Каждая вещь в нашем каталоге — это результат кропотливой работы дизайнеров и внимания к деталям.</p>
+            <p>Наша философия — минимализм, функциональность и вневременной стиль. Мы используем только натуральные и качественные материалы, чтобы наши вещи служили вам долго и радовали каждый день.</p>
+            <a href="catalog.html" class="btn-secondary">Исследовать каталог</a>
         </div>
         <div class="about-image">
-            <div class="gradient-square"></div>
-            <img src="https://images.unsplash.com/photo-1600185365483-26d7a4cc7519?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Коллекция кроссовок">
+            <img src="https://images.unsplash.com/photo-1558769132-cb1c458e4222?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Процесс создания">
         </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+        <h2>Подпишитесь на рассылку</h2>
+        <p>Получайте первыми информацию о новинках и специальных предложениях</p>
+        <form class="newsletter-form">
+            <input type="email" placeholder="Ваш email" required>
+            <button type="submit">Подписаться</button>
+        </form>
     </section>
 
     <!-- Footer -->
@@ -91,13 +114,11 @@
 
     <script src="script.js"></script>
     <script>
-        // Загрузка header и footer
         document.addEventListener('DOMContentLoaded', function() {
             fetch('header.html')
                 .then(response => response.text())
                 .then(data => {
                     document.getElementById('header').innerHTML = data;
-                    // Устанавливаем активную ссылку
                     document.querySelectorAll('.nav-link').forEach(link => {
                         if(link.getAttribute('href') === 'index.html') {
                             link.classList.add('active');
@@ -111,39 +132,13 @@
                     document.getElementById('footer').innerHTML = data;
                 });
 
-            // Загрузка новых поступлений
-            loadNewArrivals();
-        });
-
-        function loadNewArrivals() {
-            // В реальном проекте здесь был бы запрос к API
-            const products = [
-                { id: 1, name: "Nike Air Max 270", price: 12990, image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" },
-                { id: 2, name: "Adidas Ultraboost", price: 14990, image: "https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" },
-                { id: 3, name: "Puma RS-X", price: 9990, image: "https://images.unsplash.com/photo-1605348532760-6753d2c43329?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" },
-                { id: 4, name: "New Balance 574", price: 11990, image: "https://images.unsplash.com/photo-1549298916-b41d501d3772?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" }
-            ];
-
-            const container = document.getElementById('new-arrivals');
-            container.innerHTML = '';
-            
-            products.forEach(product => {
-                const productHTML = `
-                    <div class="product-card">
-                        <div class="product-image">
-                            <img src="${product.image}" alt="${product.name}">
-                            <button class="wishlist-btn" onclick="toggleWishlist(${product.id})"><i class="far fa-heart"></i></button>
-                        </div>
-                        <div class="product-info">
-                            <h3>${product.name}</h3>
-                            <p class="product-price">${product.price.toLocaleString()} ₽</p>
-                            <button class="add-to-cart-btn" onclick="addToCart(${product.id}, '${product.name}', ${product.price}, '${product.image}')">В корзину</button>
-                        </div>
-                    </div>
-                `;
-                container.innerHTML += productHTML;
+            // Newsletter form
+            document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
+                e.preventDefault();
+                showToast('Спасибо за подписку!', 'success');
+                this.reset();
             });
-        }
+        });
     </script>
 </body>
 </html>
