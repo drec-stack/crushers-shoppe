@@ -3,61 +3,106 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vogue Threads - Образы</title>
+    <title>Crushers Shoppe - Образы</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         .lookbook-hero {
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1490481651871-ab68de25d43d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
-            background-size: cover;
-            background-position: center;
-            color: white;
+            position: relative;
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
-            padding: 8rem 2rem;
-            margin-bottom: 4rem;
+            padding: 4rem 2rem;
+            overflow: hidden;
         }
 
-        .lookbook-hero h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
+        .lookbook-hero::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(45deg, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.7) 50%, rgba(255,255,255,0.1) 100%);
+            z-index: 1;
+        }
+
+        .lookbook-hero-bg {
+            position: absolute;
+            inset: 0;
+            background: url('https://images.unsplash.com/photo-1558769132-cb1c458e4222?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            filter: grayscale(100%) contrast(150%);
+        }
+
+        .lookbook-hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .lookbook-hero-content h1 {
+            font-size: 4rem;
+            margin-bottom: 1.5rem;
+            color: var(--white);
+        }
+
+        .lookbook-hero-content p {
+            font-size: 1.5rem;
+            color: var(--gray-300);
+            margin-bottom: 2rem;
         }
 
         .lookbook-grid {
-            max-width: 1200px;
-            margin: 0 auto 4rem;
+            max-width: 1280px;
+            margin: 4rem auto;
             padding: 0 2rem;
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
             gap: 2rem;
         }
 
-        .lookbook-item {
-            background: white;
-            border-radius: var(--radius);
+        .lookbook-card {
+            position: relative;
+            border-radius: var(--radius-xl);
             overflow: hidden;
-            box-shadow: var(--shadow);
+            height: 600px;
+            transition: var(--transition);
+        }
+
+        .lookbook-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-2xl);
         }
 
         .lookbook-image {
-            height: 400px;
-            overflow: hidden;
+            width: 100%;
+            height: 100%;
         }
 
         .lookbook-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s ease;
+            filter: grayscale(100%) contrast(120%);
+            transition: var(--transition);
         }
 
-        .lookbook-item:hover .lookbook-image img {
+        .lookbook-card:hover .lookbook-image img {
             transform: scale(1.05);
+            filter: grayscale(100%) contrast(150%);
         }
 
-        .lookbook-info {
-            padding: 1.5rem;
+        .lookbook-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 2rem;
+            background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, transparent 100%);
+            color: var(--white);
         }
 
         .lookbook-tags {
@@ -68,91 +113,124 @@
         }
 
         .lookbook-tag {
-            background: var(--gray-light);
-            padding: 0.3rem 0.8rem;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            color: var(--dark-color);
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 0.5rem 1rem;
+            border-radius: var(--radius-full);
+            font-size: 0.875rem;
+            font-weight: 500;
         }
 
-        .lookbook-info h3 {
-            margin-bottom: 0.5rem;
-            font-size: 1.2rem;
+        .lookbook-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
         }
 
         .lookbook-products {
             display: flex;
             gap: 1rem;
-            margin-top: 1rem;
+            margin-top: 1.5rem;
             overflow-x: auto;
             padding-bottom: 0.5rem;
         }
 
         .lookbook-product {
             flex: 0 0 auto;
-            width: 100px;
+            width: 120px;
             text-align: center;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 1rem;
+            border-radius: var(--radius-lg);
         }
 
         .lookbook-product img {
             width: 100%;
-            height: 100px;
+            height: 120px;
             object-fit: cover;
-            border-radius: var(--radius);
+            border-radius: var(--radius-md);
             margin-bottom: 0.5rem;
+            filter: grayscale(100%) contrast(120%);
         }
 
         .lookbook-product span {
-            font-size: 0.9rem;
-            color: var(--gray-dark);
+            font-size: 0.875rem;
+            color: var(--gray-300);
         }
 
-        .style-tips {
-            max-width: 1200px;
-            margin: 0 auto 4rem;
+        .style-guide {
+            max-width: 1280px;
+            margin: 6rem auto;
             padding: 0 2rem;
         }
 
-        .tips-grid {
+        .style-guide h2 {
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            background: var(--gradient-horizontal);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .guide-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 2rem;
-            margin-top: 2rem;
         }
 
-        .tip-card {
-            background: white;
-            padding: 2rem;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
+        .guide-card {
+            background: var(--white);
+            border: 1px solid var(--gray-200);
+            border-radius: var(--radius-xl);
+            padding: 3rem 2rem;
             text-align: center;
+            transition: var(--transition);
         }
 
-        .tip-icon {
-            width: 60px;
-            height: 60px;
-            background: var(--gray-light);
-            border-radius: 50%;
+        .guide-card:hover {
+            border-color: var(--gray-300);
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-xl);
+        }
+
+        .guide-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-horizontal);
+            border-radius: var(--radius-full);
             display: flex;
             align-items: center;
             justify-content: center;
             margin: 0 auto 1.5rem;
+            color: var(--white);
+            font-size: 2rem;
+        }
+
+        .guide-card h3 {
             font-size: 1.5rem;
-            color: var(--dark-color);
+            margin-bottom: 1rem;
+            color: var(--gray-900);
+        }
+
+        .guide-card p {
+            color: var(--gray-600);
+            line-height: 1.7;
         }
 
         @media (max-width: 768px) {
-            .lookbook-hero {
-                padding: 4rem 1rem;
-            }
-            
-            .lookbook-hero h1 {
+            .lookbook-hero-content h1 {
                 font-size: 2.5rem;
             }
             
             .lookbook-grid {
                 grid-template-columns: 1fr;
                 padding: 0 1rem;
+            }
+            
+            .lookbook-card {
+                height: 500px;
             }
         }
     </style>
@@ -163,113 +241,115 @@
 
     <!-- Lookbook Hero -->
     <section class="lookbook-hero">
-        <h1>ОБРАЗЫ И СТИЛЬ</h1>
-        <p>Вдохновляйтесь актуальными образами и создавайте свой уникальный стиль</p>
+        <div class="lookbook-hero-bg"></div>
+        <div class="lookbook-hero-content">
+            <h1>ОБРАЗЫ CRUSHERS</h1>
+            <p>Черно-белая эстетика в реальной жизни</p>
+            <a href="#lookbook" class="btn-primary">Смотреть образы</a>
+        </div>
     </section>
 
     <!-- Lookbook Grid -->
-    <div class="lookbook-grid">
-        <div class="lookbook-item">
+    <div id="lookbook" class="lookbook-grid">
+        <div class="lookbook-card">
             <div class="lookbook-image">
-                <img src="https://images.unsplash.com/photo-1539008835657-9e8e9680c956?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Офисный стиль">
+                <img src="https://images.unsplash.com/photo-1539008835657-9e8e9680c956?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Минимализм">
             </div>
-            <div class="lookbook-info">
+            <div class="lookbook-content">
                 <div class="lookbook-tags">
-                    <span class="lookbook-tag">Офисный</span>
                     <span class="lookbook-tag">Минимализм</span>
+                    <span class="lookbook-tag">Офисный</span>
                 </div>
-                <h3>Офисный минимализм</h3>
-                <p>Строгий и элегантный образ для деловой встречи</p>
+                <h3>Городской минимализм</h3>
+                <p>Идеальный образ для деловых встреч и городских прогулок</p>
                 <div class="lookbook-products">
                     <div class="lookbook-product">
-                        <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Белая рубашка">
-                        <span>Рубашка</span>
+                        <img src="https://images.unsplash.com/photo-1596755094514-f87e34085b2c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Рубашка">
+                        <span>Белая рубашка</span>
                     </div>
                     <div class="lookbook-product">
                         <img src="https://images.unsplash.com/photo-1542272604-787c3835535d?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Брюки">
-                        <span>Брюки</span>
+                        <span>Черные брюки</span>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="lookbook-item">
+        <div class="lookbook-card">
             <div class="lookbook-image">
-                <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Вечерний стиль">
+                <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Вечерний">
             </div>
-            <div class="lookbook-info">
+            <div class="lookbook-content">
                 <div class="lookbook-tags">
                     <span class="lookbook-tag">Вечерний</span>
                     <span class="lookbook-tag">Элегантный</span>
                 </div>
                 <h3>Вечерняя элегантность</h3>
-                <p>Идеальный образ для вечернего мероприятия</p>
+                <p>Сдержанная роскошь для особых мероприятий</p>
                 <div class="lookbook-products">
                     <div class="lookbook-product">
-                        <img src="https://images.unsplash.com/photo-1566174053879-31528523f8ae?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Вечернее платье">
-                        <span>Платье</span>
+                        <img src="https://images.unsplash.com/photo-1566174053879-31528523f8ae?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Платье">
+                        <span>Черное платье</span>
                     </div>
                     <div class="lookbook-product">
                         <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Пальто">
-                        <span>Пальто</span>
+                        <span>Шерстяное пальто</span>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="lookbook-item">
+        <div class="lookbook-card">
             <div class="lookbook-image">
-                <img src="https://images.unsplash.com/photo-1519457431-44ccd64a579b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Повседневный стиль">
+                <img src="https://images.unsplash.com/photo-1519457431-44ccd64a579b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Повседневный">
             </div>
-            <div class="lookbook-info">
+            <div class="lookbook-content">
                 <div class="lookbook-tags">
                     <span class="lookbook-tag">Повседневный</span>
                     <span class="lookbook-tag">Уютный</span>
                 </div>
-                <h3>Повседневный уют</h3>
-                <p>Комфортный и стильный образ на каждый день</p>
+                <h3>Уютный минимализм</h3>
+                <p>Комфорт и стиль для повседневной носки</p>
                 <div class="lookbook-products">
                     <div class="lookbook-product">
                         <img src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Свитер">
-                        <span>Свитер</span>
+                        <span>Кашемировый свитер</span>
                     </div>
                     <div class="lookbook-product">
                         <img src="https://images.unsplash.com/photo-1595777457583-95e059d581b8?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Юбка">
-                        <span>Юбка</span>
+                        <span>Миди-юбка</span>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Style Tips -->
-    <section class="style-tips">
-        <h2 style="text-align: center; font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 1rem;">Советы по стилю</h2>
-        <p style="text-align: center; color: var(--gray-dark); max-width: 600px; margin: 0 auto;">Полезные рекомендации по созданию гармоничных образов</p>
-        
-        <div class="tips-grid">
-            <div class="tip-card">
-                <div class="tip-icon">
+    <!-- Style Guide -->
+    <section class="style-guide">
+        <h2>Гид по стилю</h2>
+        <div class="guide-grid">
+            <div class="guide-card">
+                <div class="guide-icon">
                     <i class="fas fa-layer-group"></i>
                 </div>
                 <h3>Слои в одежде</h3>
-                <p>Учимся правильно комбинировать слои для создания интересных образов</p>
+                <p>Учимся создавать многослойные образы с черно-белой палитрой. От базовых вещей до сложных комбинаций.</p>
             </div>
             
-            <div class="tip-card">
-                <div class="tip-icon">
+            <div class="guide-card">
+                <div class="guide-icon">
                     <i class="fas fa-palette"></i>
                 </div>
                 <h3>Цветовые сочетания</h3>
-                <p>Как подбирать цвета в одежде для гармоничного образа</p>
+                <p>Искусство сочетания черного, белого и серого. Как создать гармоничный образ с минимальной палитрой.</p>
             </div>
             
-            <div class="tip-card">
-                <div class="tip-icon">
+            <div class="guide-card">
+                <div class="guide-icon">
                     <i class="fas fa-user-tie"></i>
                 </div>
                 <h3>Дресс-код</h3>
-                <p>Правила выбора одежды для разных мероприятий</p>
+                <p>Правила выбора одежды для разных мероприятий в стиле минимализм. От офиса до вечерних мероприятий.</p>
             </div>
         </div>
     </section>
