@@ -3,219 +3,189 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Каталог одежды - Crushers Shoppe</title>
+    <title>Crushers Shoppe - Каталог</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="catalog.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div id="header-container"></div>
-    
-    <main class="main-content">
-        <section class="catalog-page">
-            <div class="container">
-                <div class="cart-header">
-                    <h1>Каталог одежды</h1>
-                    <div class="breadcrumbs">
-                        <a href="index.html">Главная</a> / <span>Каталог</span>
-                    </div>
-                </div>
-                
-                <div class="catalog-layout">
-                    <aside class="catalog-sidebar">
-                        <div class="sidebar-section">
-                            <h3><i class="fas fa-filter"></i> Категории</h3>
-                            <ul class="filter-list">
-                                <li class="filter-item">
-                                    <a href="#" class="filter-link active" data-filter="all">
-                                        Все товары
-                                        <span class="filter-count">25</span>
-                                    </a>
-                                </li>
-                                <li class="filter-item">
-                                    <a href="#" class="filter-link" data-filter="men">
-                                        Мужская одежда
-                                        <span class="filter-count">9</span>
-                                    </a>
-                                </li>
-                                <li class="filter-item">
-                                    <a href="#" class="filter-link" data-filter="women">
-                                        Женская одежда
-                                        <span class="filter-count">10</span>
-                                    </a>
-                                </li>
-                                <li class="filter-item">
-                                    <a href="#" class="filter-link" data-filter="unisex">
-                                        Унисекс
-                                        <span class="filter-count">6</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        
-                        <div class="sidebar-section">
-                            <h3><i class="fas fa-tags"></i> Коллекции</h3>
-                            <ul class="filter-list">
-                                <li class="filter-item">
-                                    <a href="#" class="filter-link" data-collection="new">
-                                        Новая коллекция
-                                        <span class="filter-count">5</span>
-                                    </a>
-                                </li>
-                                <li class="filter-item">
-                                    <a href="#" class="filter-link" data-collection="sale">
-                                        Распродажа
-                                        <span class="filter-count">10</span>
-                                    </a>
-                                </li>
-                                <li class="filter-item">
-                                    <a href="#" class="filter-link" data-collection="bestseller">
-                                        Бестселлеры
-                                        <span class="filter-count">6</span>
-                                    </a>
-                                </li>
-                                <li class="filter-item">
-                                    <a href="#" class="filter-link" data-collection="premium">
-                                        Премиум
-                                        <span class="filter-count">4</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </div>
-                        
-                        <div class="sidebar-section">
-                            <h3><i class="fas fa-ruble-sign"></i> Цена</h3>
-                            <div class="price-filter">
-                                <div class="price-range">
-                                    <span id="min-price">0</span> - <span id="max-price">20 000</span> руб.
-                                </div>
-                                <input type="range" class="price-slider" id="price-slider" min="0" max="20000" value="20000" 
-                                       aria-label="Фильтр по цене" aria-valuemin="0" aria-valuemax="20000" aria-valuenow="20000">
-                                <button class="btn-primary btn-small" id="apply-price-filter">Применить</button>
-                            </div>
-                        </div>
-                        
-                        <div class="sidebar-section">
-                            <h3><i class="fas fa-ruler"></i> Размер</h3>
-                            <div class="size-filter">
-                                <button class="size-btn" data-size="XS">XS</button>
-                                <button class="size-btn" data-size="S">S</button>
-                                <button class="size-btn active" data-size="M">M</button>
-                                <button class="size-btn" data-size="L">L</button>
-                                <button class="size-btn" data-size="XL">XL</button>
-                                <button class="size-btn" data-size="XXL">XXL</button>
-                            </div>
-                        </div>
-                        
-                        <div class="sidebar-section">
-                            <h3><i class="fas fa-palette"></i> Цвет</h3>
-                            <div class="color-filter">
-                                <button class="color-btn" data-color="black" style="background-color: #000;" aria-label="Черный"></button>
-                                <button class="color-btn" data-color="white" style="background-color: #fff; border: 1px solid #ccc;" aria-label="Белый"></button>
-                                <button class="color-btn" data-color="gray" style="background-color: #a0aec0;" aria-label="Серый"></button>
-                                <button class="color-btn" data-color="blue" style="background-color: #4299e1;" aria-label="Синий"></button>
-                                <button class="color-btn" data-color="red" style="background-color: #f56565;" aria-label="Красный"></button>
-                                <button class="color-btn" data-color="green" style="background-color: #48bb78;" aria-label="Зеленый"></button>
-                                <button class="color-btn" data-color="purple" style="background-color: #9f7aea;" aria-label="Фиолетовый"></button>
-                                <button class="color-btn" data-color="pink" style="background-color: #ed64a6;" aria-label="Розовый"></button>
-                            </div>
-                        </div>
-                        
-                        <button class="btn-outline btn-full" id="reset-filters">
-                            <i class="fas fa-redo"></i> Сбросить фильтры
-                        </button>
-                    </aside>
-                    
-                    <div class="catalog-main">
-                        <div class="catalog-toolbar">
-                            <div class="sort-options">
-                                <label for="sort-select">Сортировка:</label>
-                                <select id="sort-select" class="sort-select">
-                                    <option value="popular">По популярности</option>
-                                    <option value="price-asc">По возрастанию цены</option>
-                                    <option value="price-desc">По убыванию цены</option>
-                                    <option value="new">По новизне</option>
-                                    <option value="name">По названию</option>
-                                </select>
-                            </div>
-                            <div class="view-options">
-                                <button class="view-btn active" id="grid-view" aria-label="Вид сеткой">
-                                    <i class="fas fa-th-large"></i>
-                                </button>
-                                <button class="view-btn" id="list-view" aria-label="Вид списком">
-                                    <i class="fas fa-list"></i>
-                                </button>
-                            </div>
-                        </div>
-                        
-                        <div class="products-grid" id="catalog-products">
-                            <!-- Товары будут загружены через JS -->
-                            <div class="loading">
-                                <div class="loading-spinner"></div>
-                            </div>
-                        </div>
-                        
-                        <div class="catalog-pagination">
-                            <button class="pagination-btn" disabled aria-label="Предыдущая страница">
-                                <i class="fas fa-chevron-left"></i>
-                            </button>
-                            <button class="pagination-btn active" aria-label="Страница 1">1</button>
-                            <button class="pagination-btn" aria-label="Страница 2">2</button>
-                            <button class="pagination-btn" aria-label="Страница 3">3</button>
-                            <span class="pagination-dots">...</span>
-                            <button class="pagination-btn" aria-label="Страница 5">5</button>
-                            <button class="pagination-btn" aria-label="Следующая страница">
-                                <i class="fas fa-chevron-right"></i>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <section class="features-section" style="background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);">
-            <div class="container">
-                <div class="section-header">
-                    <h2>Почему покупают у нас</h2>
-                    <p>Наши преимущества для вашего комфорта</p>
-                </div>
-                <div class="features-grid">
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-shipping-fast"></i>
-                        </div>
-                        <h3>Быстрая доставка</h3>
-                        <p>Доставка по городу за 24 часа, по России - 3-7 дней</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-undo-alt"></i>
-                        </div>
-                        <h3>Легкий возврат</h3>
-                        <p>Возврат товара в течение 30 дней без объяснения причин</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-award"></i>
-                        </div>
-                        <h3>Гарантия качества</h3>
-                        <p>Все товары проходят строгий контроль качества</p>
-                    </div>
-                    <div class="feature-card">
-                        <div class="feature-icon">
-                            <i class="fas fa-headset"></i>
-                        </div>
-                        <h3>Поддержка 24/7</h3>
-                        <p>Круглосуточная поддержка по телефону и онлайн-чату</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
+    <!-- Header -->
+    <div id="header"></div>
 
-    <div id="footer-container"></div>
+    <!-- Catalog Header -->
+    <div class="catalog-header">
+        <div class="catalog-header-content">
+            <h1>Каталог кроссовок</h1>
+            <p>Более 500 моделей от ведущих мировых брендов</p>
+        </div>
+    </div>
+
+    <!-- Catalog Content -->
+    <div class="catalog-container">
+        <!-- Filters Sidebar -->
+        <aside class="filters-sidebar">
+            <div class="filter-section">
+                <h3>Категории</h3>
+                <div class="filter-options">
+                    <label class="filter-option">
+                        <input type="checkbox" checked>
+                        <span>Все кроссовки</span>
+                    </label>
+                    <label class="filter-option">
+                        <input type="checkbox">
+                        <span>Беговые</span>
+                    </label>
+                    <label class="filter-option">
+                        <input type="checkbox">
+                        <span>Баскетбольные</span>
+                    </label>
+                    <label class="filter-option">
+                        <input type="checkbox">
+                        <span>Повседневные</span>
+                    </label>
+                    <label class="filter-option">
+                        <input type="checkbox">
+                        <span>Лимитированные</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="filter-section">
+                <h3>Бренды</h3>
+                <div class="filter-options">
+                    <label class="filter-option">
+                        <input type="checkbox">
+                        <span>Nike</span>
+                    </label>
+                    <label class="filter-option">
+                        <input type="checkbox">
+                        <span>Adidas</span>
+                    </label>
+                    <label class="filter-option">
+                        <input type="checkbox">
+                        <span>Puma</span>
+                    </label>
+                    <label class="filter-option">
+                        <input type="checkbox">
+                        <span>New Balance</span>
+                    </label>
+                    <label class="filter-option">
+                        <input type="checkbox">
+                        <span>Reebok</span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="filter-section">
+                <h3>Цена</h3>
+                <div class="price-range">
+                    <input type="range" min="0" max="50000" value="25000" class="slider" id="priceRange">
+                    <div class="price-values">
+                        <span>0 ₽</span>
+                        <span id="currentPrice">25000 ₽</span>
+                        <span>50000 ₽</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="filter-section">
+                <h3>Размер</h3>
+                <div class="size-options">
+                    <button class="size-btn">38</button>
+                    <button class="size-btn">39</button>
+                    <button class="size-btn">40</button>
+                    <button class="size-btn">41</button>
+                    <button class="size-btn">42</button>
+                    <button class="size-btn">43</button>
+                    <button class="size-btn">44</button>
+                    <button class="size-btn">45</button>
+                </div>
+            </div>
+
+            <button class="apply-filters-btn">Применить фильтры</button>
+            <button class="reset-filters-btn">Сбросить все</button>
+        </aside>
+
+        <!-- Products Grid -->
+        <main class="catalog-main">
+            <div class="catalog-controls">
+                <div class="sort-controls">
+                    <label for="sort">Сортировать:</label>
+                    <select id="sort">
+                        <option value="popular">По популярности</option>
+                        <option value="price-low">Сначала дешевые</option>
+                        <option value="price-high">Сначала дорогие</option>
+                        <option value="new">Новинки</option>
+                    </select>
+                </div>
+                <div class="view-controls">
+                    <button class="view-btn active" data-view="grid"><i class="fas fa-th"></i></button>
+                    <button class="view-btn" data-view="list"><i class="fas fa-list"></i></button>
+                </div>
+            </div>
+
+            <div class="catalog-grid" id="catalogProducts">
+                <!-- Products will be loaded by JavaScript -->
+                <div class="loading">
+                    <div class="spinner"></div>
+                </div>
+            </div>
+
+            <div class="pagination">
+                <button class="pagination-btn" disabled><i class="fas fa-chevron-left"></i></button>
+                <button class="pagination-btn active">1</button>
+                <button class="pagination-btn">2</button>
+                <button class="pagination-btn">3</button>
+                <button class="pagination-btn">4</button>
+                <button class="pagination-btn">5</button>
+                <button class="pagination-btn"><i class="fas fa-chevron-right"></i></button>
+            </div>
+        </main>
+    </div>
+
+    <!-- Footer -->
+    <div id="footer"></div>
 
     <script src="script.js"></script>
-    <script src="catalog-script.js"></script>
+    <script src="catalog.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Загрузка header и footer
+            fetch('header.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('header').innerHTML = data;
+                    // Устанавливаем активную ссылку
+                    document.querySelectorAll('.nav-link').forEach(link => {
+                        if(link.getAttribute('href') === 'catalog.html') {
+                            link.classList.add('active');
+                        }
+                    });
+                    
+                    // Инициализация мобильного меню
+                    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+                    const navLinks = document.getElementById('navLinks');
+                    
+                    if(mobileMenuBtn && navLinks) {
+                        mobileMenuBtn.addEventListener('click', () => {
+                            navLinks.classList.toggle('active');
+                            mobileMenuBtn.innerHTML = navLinks.classList.contains('active') 
+                                ? '<i class="fas fa-times"></i>' 
+                                : '<i class="fas fa-bars"></i>';
+                        });
+                    }
+                });
+
+            fetch('footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer').innerHTML = data;
+                });
+
+            // Инициализация каталога
+            initializeCatalog();
+        });
+    </script>
 </body>
 </html>
