@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vogue Threads - Магазин одежды</title>
+    <title>Crushers Shoppe - Магазин одежды</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Raleway:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- Header -->
@@ -14,99 +14,111 @@
 
     <!-- Hero Section -->
     <section class="hero">
+        <div class="hero-gradient"></div>
         <div class="hero-content">
-            <h1>VOGUE THREADS</h1>
-            <p class="tagline">Современная одежда для уверенных в себе</p>
-            <p>Эксклюзивные коллекции, качественные материалы и неповторимый стиль</p>
-            <a href="catalog.html" class="btn-primary">Коллекция 2024</a>
+            <h1 class="hero-title">
+                <span class="gradient-text">CRUSHERS</span>
+                <span class="hero-subtitle">SHOPPE</span>
+            </h1>
+            <p class="hero-tagline">Черно-белая эстетика в каждой детали</p>
+            <p class="hero-description">Минимализм, качество и вневременной стиль. Одежда для тех, кто ценит совершенство в простоте.</p>
+            <div class="hero-buttons">
+                <a href="catalog.html" class="btn-primary">Смотреть коллекцию</a>
+                <a href="#collections" class="btn-secondary">Исследовать</a>
+            </div>
         </div>
         <div class="hero-image">
-            <div class="gradient-circle"></div>
-            <img src="https://images.unsplash.com/photo-1445205170230-053b83016050?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Современная одежда">
+            <div class="image-frame">
+                <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Черно-белая коллекция">
+                <div class="image-overlay"></div>
+            </div>
         </div>
     </section>
 
-    <!-- Collections Section -->
-    <section class="collections">
-        <h2>Коллекции</h2>
+    <!-- Collections -->
+    <section id="collections" class="collections">
+        <div class="section-header">
+            <h2 class="section-title">Коллекции</h2>
+            <p class="section-subtitle">Исследуйте наше черно-белое видение</p>
+        </div>
         <div class="collections-grid">
-            <a href="catalog.html?category=women" class="collection-card">
-                <img src="https://images.unsplash.com/photo-1490481651871-ab68de25d43d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Женская одежда">
-                <div class="collection-overlay">
-                    <h3>Женская коллекция</h3>
-                    <p>Изысканные модели</p>
+            <a href="catalog.html?category=essentials" class="collection-card">
+                <div class="collection-image">
+                    <img src="https://images.unsplash.com/photo-1487222477894-8943e31ef7b2?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Essentials">
+                    <div class="collection-overlay">
+                        <div class="collection-content">
+                            <h3>Essentials</h3>
+                            <p>Базовые вещи</p>
+                        </div>
+                    </div>
                 </div>
             </a>
-            <a href="catalog.html?category=men" class="collection-card">
-                <img src="https://images.unsplash.com/photo-1520975916090-3105956dac38?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Мужская одежда">
-                <div class="collection-overlay">
-                    <h3>Мужская коллекция</h3>
-                    <p>Стиль и комфорт</p>
+            <a href="catalog.html?category=premium" class="collection-card">
+                <div class="collection-image">
+                    <img src="https://images.unsplash.com/photo-1552374196-c4e7ffc6e126?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Premium">
+                    <div class="collection-overlay">
+                        <div class="collection-content">
+                            <h3>Premium</h3>
+                            <p>Премиум материалы</p>
+                        </div>
+                    </div>
                 </div>
             </a>
-            <a href="catalog.html?category=new" class="collection-card">
-                <img src="https://images.unsplash.com/photo-1509319117193-57bab727e09d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Новинки">
-                <div class="collection-overlay">
-                    <h3>Новинки</h3>
-                    <p>Свежие поступления</p>
+            <a href="catalog.html?category=limited" class="collection-card">
+                <div class="collection-image">
+                    <img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Limited">
+                    <div class="collection-overlay">
+                        <div class="collection-content">
+                            <h3>Limited</h3>
+                            <p>Лимитированные серии</p>
+                        </div>
+                    </div>
                 </div>
             </a>
         </div>
     </section>
 
-    <!-- Features -->
-    <section class="features">
-        <div class="feature">
-            <div class="feature-icon">
-                <i class="fas fa-truck"></i>
+    <!-- Philosophy -->
+    <section class="philosophy">
+        <div class="philosophy-content">
+            <h2 class="section-title">Философия бренда</h2>
+            <p class="philosophy-text">Crushers Shoppe — это не просто одежда. Это манифест минимализма, где каждый оттенок серого имеет значение, а контраст черного и белого создает гармонию.</p>
+            <p class="philosophy-text">Мы верим в силу простоты, в красоту чистых линий и в элегантность сдержанности. Наши вещи созданы для тех, кто ищет не временные тренды, а вечную эстетику.</p>
+            <div class="philosophy-stats">
+                <div class="stat">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Качество материалов</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">24/7</div>
+                    <div class="stat-label">Поддержка</div>
+                </div>
+                <div class="stat">
+                    <div class="stat-number">30</div>
+                    <div class="stat-label">Дней на возврат</div>
+                </div>
             </div>
-            <h3>Быстрая доставка</h3>
-            <p>По России за 2-7 дней</p>
         </div>
-        <div class="feature">
-            <div class="feature-icon">
-                <i class="fas fa-undo"></i>
+        <div class="philosophy-image">
+            <div class="image-frame">
+                <img src="https://images.unsplash.com/photo-1558769132-cb1c458e4222?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Философия">
+                <div class="gradient-overlay"></div>
             </div>
-            <h3>Легкий возврат</h3>
-            <p>30 дней на возврат</p>
-        </div>
-        <div class="feature">
-            <div class="feature-icon">
-                <i class="fas fa-shield-alt"></i>
-            </div>
-            <h3>Гарантия качества</h3>
-            <p>Проверенные материалы</p>
-        </div>
-        <div class="feature">
-            <div class="feature-icon">
-                <i class="fas fa-headset"></i>
-            </div>
-            <h3>Поддержка</h3>
-            <p>Помощь 24/7</p>
-        </div>
-    </section>
-
-    <!-- About -->
-    <section class="about">
-        <div class="about-content">
-            <h2>О бренде Vogue Threads</h2>
-            <p>Мы создаем одежду для тех, кто ценит качество, комфорт и современный дизайн. Каждая вещь в нашем каталоге — это результат кропотливой работы дизайнеров и внимания к деталям.</p>
-            <p>Наша философия — минимализм, функциональность и вневременной стиль. Мы используем только натуральные и качественные материалы, чтобы наши вещи служили вам долго и радовали каждый день.</p>
-            <a href="catalog.html" class="btn-secondary">Исследовать каталог</a>
-        </div>
-        <div class="about-image">
-            <img src="https://images.unsplash.com/photo-1558769132-cb1c458e4222?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Процесс создания">
         </div>
     </section>
 
     <!-- Newsletter -->
     <section class="newsletter">
-        <h2>Подпишитесь на рассылку</h2>
-        <p>Получайте первыми информацию о новинках и специальных предложениях</p>
-        <form class="newsletter-form">
-            <input type="email" placeholder="Ваш email" required>
-            <button type="submit">Подписаться</button>
-        </form>
+        <div class="newsletter-content">
+            <h2>Оставайтесь в черно-белом</h2>
+            <p>Подпишитесь, чтобы первыми узнавать о новых коллекциях</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Ваш email" required>
+                <button type="submit">
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+            </form>
+        </div>
     </section>
 
     <!-- Footer -->
@@ -132,7 +144,7 @@
                     document.getElementById('footer').innerHTML = data;
                 });
 
-            // Newsletter form
+            // Newsletter
             document.querySelector('.newsletter-form').addEventListener('submit', function(e) {
                 e.preventDefault();
                 showToast('Спасибо за подписку!', 'success');
