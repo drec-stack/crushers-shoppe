@@ -1,137 +1,33 @@
-<header class="site-header">
-    <div class="container">
-        <div class="header-content">
-            <div class="logo">
-                <a href="index.html">
-                    <div class="logo-icon">C</div>
-                    <div class="logo-text">RUSHERS <span class="highlight">SHOPPE</span></div>
-                </a>
-            </div>
-            
-            <nav class="main-nav" aria-label="Основная навигация">
-                <ul class="nav-list">
-                    <li><a href="index.html" class="nav-link active">Главная</a></li>
-                    <li><a href="catalog.html" class="nav-link">Каталог</a></li>
-                    <li><a href="outfits.html" class="nav-link">Мои образы</a></li>
-                    <li><a href="contacts.html" class="nav-link">Контакты</a></li>
-                </ul>
-            </nav>
-            
-            <div class="header-actions">
-                <button class="header-icon" id="search-btn" aria-label="Поиск товаров">
-                    <i class="fas fa-search"></i>
-                    <span class="sr-only">Поиск</span>
-                </button>
-                <a href="outfits.html" class="header-icon" aria-label="Мои образы">
-                    <i class="fas fa-tshirt"></i>
-                    <span class="sr-only">Образы</span>
-                </a>
-                <a href="cart.html" class="header-icon cart-icon" aria-label="Корзина покупок">
-                    <i class="fas fa-shopping-bag"></i>
-                    <span class="cart-count" id="cart-count">0</span>
-                    <span class="sr-only">Товаров в корзине:</span>
-                </a>
-                <a href="#" class="header-icon" aria-label="Профиль пользователя" id="profile-btn">
-                    <i class="fas fa-user"></i>
-                    <span class="sr-only">Профиль</span>
-                </a>
-            </div>
-            
-            <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Открыть меню" aria-expanded="false" aria-controls="mobile-menu">
-                <i class="fas fa-bars"></i>
-                <span class="sr-only">Меню</span>
-            </button>
-        </div>
+<header class="header">
+    <div class="header-container">
+        <a href="index.html" class="logo">
+            <i class="fas fa-shoe-prints"></i>
+            Crushers Shoppe
+        </a>
         
-        <div class="mobile-menu" id="mobile-menu" role="navigation" aria-label="Мобильная навигация">
-            <nav class="mobile-nav">
-                <ul class="mobile-nav-list">
-                    <li><a href="index.html" class="mobile-nav-link active">
-                        <i class="fas fa-home"></i> Главная
-                    </a></li>
-                    <li><a href="catalog.html" class="mobile-nav-link">
-                        <i class="fas fa-th-large"></i> Каталог
-                    </a></li>
-                    <li><a href="outfits.html" class="mobile-nav-link">
-                        <i class="fas fa-tshirt"></i> Мои образы
-                    </a></li>
-                    <li><a href="contacts.html" class="mobile-nav-link">
-                        <i class="fas fa-phone-alt"></i> Контакты
-                    </a></li>
-                    <li><a href="cart.html" class="mobile-nav-link">
-                        <i class="fas fa-shopping-bag"></i> Корзина <span id="mobile-cart-count">0</span>
-                    </a></li>
-                    <li><a href="#" class="mobile-nav-link" id="mobile-profile-btn">
-                        <i class="fas fa-user"></i> Профиль
-                    </a></li>
-                </ul>
-            </nav>
+        <button class="mobile-menu-btn" id="mobileMenuBtn">
+            <i class="fas fa-bars"></i>
+        </button>
+        
+        <nav>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html" class="nav-link">Главная</a></li>
+                <li><a href="catalog.html" class="nav-link">Каталог</a></li>
+                <li><a href="lookbook.html" class="nav-link">Образы</a></li>
+                <li><a href="contact.html" class="nav-link">Контакты</a></li>
+                <li><a href="cart.html" class="nav-link cart-link">Корзина</a></li>
+                <li><a href="checkout.html" class="nav-link checkout-link">Онлайн покупка</a></li>
+            </ul>
+        </nav>
+        
+        <div class="header-actions">
+            <a href="cart.html" class="cart-icon">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count">0</span>
+            </a>
+            <a href="#" class="user-icon">
+                <i class="fas fa-user"></i>
+            </a>
         </div>
     </div>
 </header>
-
-<!-- Поисковая панель -->
-<div class="search-panel" id="search-panel" role="search" aria-label="Поиск товаров">
-    <div class="container">
-        <div class="search-container">
-            <div class="search-header">
-                <h2>Поиск товаров</h2>
-                <button class="search-close" id="search-close" aria-label="Закрыть поиск">
-                    <i class="fas fa-times"></i>
-                </button>
-            </div>
-            <div class="search-input-container">
-                <input type="text" id="search-input" class="search-input" placeholder="Введите название товара..." aria-label="Введите запрос для поиска товаров">
-                <button class="search-btn" id="search-submit" aria-label="Найти">
-                    <i class="fas fa-search"></i>
-                </button>
-            </div>
-            <div class="search-results" id="search-results" role="region" aria-label="Результаты поиска">
-                <div class="search-result-item">
-                    <div class="search-result-image"></div>
-                    <div class="search-result-info">
-                        <h4>Футболка Crusher Basic</h4>
-                        <p>Мужская одежда</p>
-                    </div>
-                    <div class="search-result-price">2 499 руб.</div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-
-<!-- Быстрое меню покупки -->
-<div class="quick-buy-panel" id="quick-buy-panel">
-    <div class="container">
-        <div class="quick-buy-content">
-            <button class="quick-buy-close" id="quick-buy-close" aria-label="Закрыть">
-                <i class="fas fa-times"></i>
-            </button>
-            <div class="quick-buy-product">
-                <div class="quick-buy-image" id="quick-buy-image"></div>
-                <div class="quick-buy-info">
-                    <h3 id="quick-buy-title"></h3>
-                    <div class="quick-buy-price" id="quick-buy-price"></div>
-                </div>
-            </div>
-            <div class="quick-buy-options">
-                <div class="size-selection">
-                    <h4>Размер:</h4>
-                    <div class="size-options" id="size-options"></div>
-                </div>
-                <div class="quantity-selection">
-                    <h4>Количество:</h4>
-                    <div class="quantity-control">
-                        <button class="quantity-btn minus" id="quick-minus">-</button>
-                        <input type="number" class="quantity-input" id="quick-quantity" value="1" min="1" max="10">
-                        <button class="quantity-btn plus" id="quick-plus">+</button>
-                    </div>
-                </div>
-            </div>
-            <div class="quick-buy-actions">
-                <button class="btn-primary" id="quick-buy-btn">Купить сейчас</button>
-                <button class="btn-secondary" id="quick-cart-btn">Добавить в корзину</button>
-            </div>
-        </div>
-    </div>
-</div>
