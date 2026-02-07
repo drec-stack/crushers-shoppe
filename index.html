@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crushers Shoppe - Уникальная одежда нового поколения</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="header-container"></div>
+    
+    <main class="main-content">
+        <!-- Герой секция -->
+        <section class="hero-section">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">CRUSHERS <span class="highlight">SHOPPE</span></h1>
+                    <p class="hero-subtitle">Одежда, которая меняет правила игры. Стиль будущего уже здесь.</p>
+                    <div class="hero-actions">
+                        <a href="catalog.html" class="btn-primary">Начать шопинг</a>
+                        <a href="#features" class="btn-secondary">Узнать больше</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <div class="image-placeholder hero-fashion"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Особенности -->
+        <section class="features-section" id="features">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Почему выбирают <span class="highlight">Crushers Shoppe</span></h2>
+                    <p>Инновационные технологии покупок одежды</p>
+                </div>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-tshirt"></i>
+                        </div>
+                        <h3>Виртуальная примерочная</h3>
+                        <p>Примерьте любую одежду на своем цифровом аватаре перед покупкой</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h3>AI Стилист</h3>
+                        <p>Персональный искусственный интеллект подбирает образы специально для вас</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-wardrobe"></i>
+                        </div>
+                        <h3>Цифровая гардеробная</h3>
+                        <p>Все покупки и образы в одном месте с умными рекомендациями</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <h3>Мгновенная доставка</h3>
+                        <p>Экспресс-доставка в течение 24 часов в пределах города</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Популярные категории -->
+        <section class="categories-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Популярные <span class="highlight">категории</span></h2>
+                    <p>Найдите свой идеальный стиль</p>
+                </div>
+                <div class="categories-grid">
+                    <a href="catalog.html?category=men" class="category-card">
+                        <div class="category-image men-category"></div>
+                        <div class="category-info">
+                            <h3>Мужская одежда</h3>
+                            <p>От классики до уличного стиля</p>
+                        </div>
+                    </a>
+                    <a href="catalog.html?category=women" class="category-card">
+                        <div class="category-image women-category"></div>
+                        <div class="category-info">
+                            <h3>Женская одежда</h3>
+                            <p>Элегантность и современность</p>
+                        </div>
+                    </a>
+                    <a href="catalog.html?category=unisex" class="category-card">
+                        <div class="category-image unisex-category"></div>
+                        <div class="category-info">
+                            <h3>Унисекс</h3>
+                            <p>Стиль без границ</p>
+                        </div>
+                    </a>
+                    <a href="catalog.html?collection=new" class="category-card">
+                        <div class="category-image new-category"></div>
+                        <div class="category-info">
+                            <h3>Новая коллекция</h3>
+                            <p>Тренды этого сезона</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Бестселлеры -->
+        <section class="bestsellers-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Хиты <span class="highlight">продаж</span></h2>
+                    <p>Самые популярные товары этой недели</p>
+                </div>
+                <div class="products-grid" id="bestsellers-grid">
+                    <!-- Товары будут загружены через JS -->
+                </div>
+                <div class="section-actions">
+                    <a href="catalog.html" class="btn-primary">Смотреть все товары</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Виртуальная примерочная -->
+        <section class="tryon-section">
+            <div class="container">
+                <div class="tryon-content">
+                    <div class="tryon-info">
+                        <h2>Попробуйте <span class="highlight">виртуальную примерочную</span></h2>
+                        <p>Загрузите фото или используйте наш аватар, чтобы примерить одежду перед покупкой. Экономьте время и выбирайте с уверенностью.</p>
+                        <ul class="tryon-features">
+                            <li><i class="fas fa-check-circle"></i> Реалистичная 3D-графика</li>
+                            <li><i class="fas fa-check-circle"></i> Настройка под ваш тип фигуры</li>
+                            <li><i class="fas fa-check-circle"></i> Сохранение образов</li>
+                            <li><i class="fas fa-check-circle"></i> Доля с друзьями</li>
+                        </ul>
+                        <button class="btn-primary" id="try-virtual-tryon">Попробовать бесплатно</button>
+                    </div>
+                    <div class="tryon-preview">
+                        <div class="tryon-image"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Отзывы -->
+        <section class="testimonials-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2>Что говорят <span class="highlight">наши клиенты</span></h2>
+                    <p>Более 10,000 довольных покупателей</p>
+                </div>
+                <div class="testimonials-grid">
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p>"Виртуальная примерочная изменила мой подход к покупкам. Больше не нужно возвращать вещи!"</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar a1"></div>
+                            <div class="author-info">
+                                <h4>Анна Смирнова</h4>
+                                <p>Москва</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p>"AI стилист подобрал мне идеальный капсульный гардероб. Одеваюсь стильно каждый день!"</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar a2"></div>
+                            <div class="author-info">
+                                <h4>Максим Иванов</h4>
+                                <p>Санкт-Петербург</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="testimonial-content">
+                            <p>"Отличное качество тканей и пошива. Рекомендую всем, кто ценит качество и стиль."</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-avatar a3"></div>
+                            <div class="author-info">
+                                <h4>Екатерина Петрова</h4>
+                                <p>Казань</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA секция -->
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-content">
+                    <h2>Готовы изменить свой <span class="highlight">стиль</span>?</h2>
+                    <p>Присоединяйтесь к более чем 50,000 стильных людей, которые уже выбирают Crushers Shoppe</p>
+                    <div class="cta-actions">
+                        <a href="catalog.html" class="btn-primary">Начать покупки</a>
+                        <a href="contacts.html" class="btn-secondary">Связаться с нами</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <div id="footer-container"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
