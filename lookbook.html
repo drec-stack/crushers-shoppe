@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crushers Shoppe - Образы</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        .lookbook-hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1511556532299-8f662fc26c06?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 8rem 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .lookbook-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .lookbook-hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+
+        .lookbook-categories {
+            max-width: 1200px;
+            margin: 0 auto 4rem;
+            padding: 0 2rem;
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .category-card {
+            position: relative;
+            border-radius: var(--radius);
+            overflow: hidden;
+            height: 300px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .category-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .category-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .category-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            padding: 2rem;
+            color: white;
+        }
+
+        .lookbook-grid {
+            max-width: 1200px;
+            margin: 0 auto 4rem;
+            padding: 0 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .lookbook-item {
+            background: white;
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .lookbook-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .lookbook-image {
+            height: 400px;
+            overflow: hidden;
+        }
+
+        .lookbook-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .lookbook-item:hover .lookbook-image img {
+            transform: scale(1.05);
+        }
+
+        .lookbook-info {
+            padding: 1.5rem;
+        }
+
+        .lookbook-tags {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .lookbook-tag {
+            background: var(--gradient-light);
+            padding: 0.3rem 0.8rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            color: var(--dark-color);
+        }
+
+        .lookbook-info h3 {
+            margin-bottom: 0.5rem;
+            color: var(--dark-color);
+        }
+
+        .lookbook-products {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+            overflow-x: auto;
+            padding-bottom: 0.5rem;
+        }
+
+        .lookbook-product {
+            flex: 0 0 auto;
+            width: 100px;
+            text-align: center;
+        }
+
+        .lookbook-product img {
+            width: 100%;
+            height: 100px;
+            object-fit: cover;
+            border-radius: var(--radius);
+            margin-bottom: 0.5rem;
+        }
+
+        .lookbook-product span {
+            font-size: 0.9rem;
+            color: var(--gray-dark);
+        }
+
+        .style-tips {
+            max-width: 1200px;
+            margin: 0 auto 4rem;
+            padding: 0 2rem;
+            background: white;
+            border-radius: var(--radius);
+            padding: 3rem;
+            box-shadow: var(--shadow);
+        }
+
+        .style-tips h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--dark-color);
+        }
+
+        .tips-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .tip-card {
+            text-align: center;
+            padding: 1.5rem;
+        }
+
+        .tip-icon {
+            width: 80px;
+            height: 80px;
+            background: var(--gradient-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2rem;
+            color: var(--primary-color);
+        }
+
+        @media (max-width: 768px) {
+            .lookbook-hero {
+                padding: 4rem 1rem;
+            }
+            
+            .lookbook-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .lookbook-grid {
+                grid-template-columns: 1fr;
+                padding: 0 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div id="header"></div>
+
+    <!-- Lookbook Hero -->
+    <section class="lookbook-hero">
+        <h1>ОБРАЗЫ И СТИЛЬ</h1>
+        <p>Вдохновляйтесь актуальными образами и создавайте свой уникальный стиль с нашими кроссовками</p>
+        <a href="#lookbook" class="btn-primary">Смотреть образы</a>
+    </section>
+
+    <!-- Categories -->
+    <section class="lookbook-categories">
+        <h2 style="text-align: center; margin-bottom: 2rem; font-size: 2rem;">Категории образов</h2>
+        <div class="categories-grid">
+            <div class="category-card">
+                <img src="https://images.unsplash.com/photo-1491553895911-0055eca6402d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Повседневный стиль">
+                <div class="category-overlay">
+                    <h3>Повседневный</h3>
+                    <p>Образы на каждый день</p>
+                </div>
+            </div>
+            <div class="category-card">
+                <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Спортивный стиль">
+                <div class="category-overlay">
+                    <h3>Спортивный</h3>
+                    <p>Для активного образа жизни</p>
+                </div>
+            </div>
+            <div class="category-card">
+                <img src="https://images.unsplash.com/photo-1523381210434-271e8be1f52b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Уличный стиль">
+                <div class="category-overlay">
+                    <h3>Уличный</h3>
+                    <p>Актуальные уличные тренды</p>
+                </div>
+            </div>
+            <div class="category-card">
+                <img src="https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Премиум стиль">
+                <div class="category-overlay">
+                    <h3>Премиум</h3>
+                    <p>Эксклюзивные коллекции</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Lookbook Grid -->
+    <section id="lookbook" class="lookbook-grid">
+        <div class="lookbook-item">
+            <div class="lookbook-image">
+                <img src="https://images.unsplash.com/photo-1539185441755-769473a23570?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Городской стиль">
+            </div>
+            <div class="lookbook-info">
+                <div class="lookbook-tags">
+                    <span class="lookbook-tag">Городской</span>
+                    <span class="lookbook-tag">Минимализм</span>
+                    <span class="lookbook-tag">Осень 2024</span>
+                </div>
+                <h3>Городской минимализм</h3>
+                <p>Идеальный образ для городских прогулок в стиле минимализм с акцентом на комфорт.</p>
+                <div class="lookbook-products">
+                    <div class="lookbook-product">
+                        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Nike Air Max">
+                        <span>Nike Air Max</span>
+                    </div>
+                    <div class="lookbook-product">
+                        <img src="https://images.unsplash.com/photo-1544441893-675973e31985?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Джинсы">
+                        <span>Скини джинсы</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="lookbook-item">
+            <div class="lookbook-image">
+                <img src="https://images.unsplash.com/photo-1514989940723-e8e51635b782?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Спортивный шик">
+            </div>
+            <div class="lookbook-info">
+                <div class="lookbook-tags">
+                    <span class="lookbook-tag">Спортивный</span>
+                    <span class="lookbook-tag">Активный</span>
+                    <span class="lookbook-tag">Тренировки</span>
+                </div>
+                <h3>Спортивный шик</h3>
+                <p>Образ для тренировок и активного отдыха, сочетающий функциональность и стиль.</p>
+                <div class="lookbook-products">
+                    <div class="lookbook-product">
+                        <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Adidas Ultraboost">
+                        <span>Adidas Ultraboost</span>
+                    </div>
+                    <div class="lookbook-product">
+                        <img src="https://images.unsplash.com/photo-1591047139829-d91aecb6caea?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Спортивный костюм">
+                        <span>Спорт костюм</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="lookbook-item">
+            <div class="lookbook-image">
+                <img src="https://images.unsplash.com/photo-1519457431-44ccd64a579b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Уличный стиль">
+            </div>
+            <div class="lookbook-info">
+                <div class="lookbook-tags">
+                    <span class="lookbook-tag">Уличный</span>
+                    <span class="lookbook-tag">Гранж</span>
+                    <span class="lookbook-tag">Хип-хоп</span>
+                </div>
+                <h3>Уличный гранж</h3>
+                <p>Смелый образ в стиле уличной моды с элементами гранжа и хип-хоп культуры.</p>
+                <div class="lookbook-products">
+                    <div class="lookbook-product">
+                        <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Puma RS-X">
+                        <span>Puma RS-X</span>
+                    </div>
+                    <div class="lookbook-product">
+                        <img src="https://images.unsplash.com/photo-1523381140794-a1eef18a37c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Оверсайз худи">
+                        <span>Оверсайз худи</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Style Tips -->
+    <section class="style-tips">
+        <h2>Советы по стилю</h2>
+        <div class="tips-grid">
+            <div class="tip-card">
+                <div class="tip-icon">
+                    <i class="fas fa-palette"></i>
+                </div>
+                <h3>Цветовые сочетания</h3>
+                <p>Узнайте, как сочетать цвета в обуви и одежде для создания гармоничных образов.</p>
+            </div>
+            <div class="tip-card">
+                <div class="tip-icon">
+                    <i class="fas fa-tshirt"></i>
+                </div>
+                <h3>Подбор одежды</h3>
+                <p>Как выбрать идеальную одежду под ваши кроссовки для разных случаев.</p>
+            </div>
+            <div class="tip-card">
+                <div class="tip-icon">
+                    <i class="fas fa-calendar-alt"></i>
+                </div>
+                <h3>Сезонные тренды</h3>
+                <p>Актуальные тренды каждого сезона и как их интегрировать в свой гардероб.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <div id="footer"></div>
+
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('header.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('header').innerHTML = data;
+                    document.querySelectorAll('.nav-link').forEach(link => {
+                        if(link.getAttribute('href') === 'lookbook.html') {
+                            link.classList.add('active');
+                        }
+                    });
+                });
+
+            fetch('footer.html')
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('footer').innerHTML = data;
+                });
+        });
+    </script>
+</body>
+</html>
