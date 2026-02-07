@@ -3,82 +3,77 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Crushers Shoppe - Оформление заказа</title>
+    <title>Vogue Threads - Оформление заказа</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         .checkout-container {
-            max-width: 1200px;
+            max-width: 800px;
             margin: 4rem auto;
             padding: 0 2rem;
         }
 
-        .checkout-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .checkout-header h1 {
+        .checkout-container h1 {
+            font-family: 'Playfair Display', serif;
             font-size: 2.5rem;
-            margin-bottom: 1rem;
-            color: var(--dark-color);
+            margin-bottom: 3rem;
         }
 
         .checkout-steps {
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             margin-bottom: 3rem;
-            gap: 2rem;
-            flex-wrap: wrap;
+            position: relative;
+        }
+
+        .checkout-steps::before {
+            content: '';
+            position: absolute;
+            top: 20px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--gray);
+            z-index: 1;
         }
 
         .checkout-step {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.8rem 1.5rem;
-            background: white;
-            border-radius: 50px;
-            box-shadow: var(--shadow);
-            font-weight: 500;
+            position: relative;
+            z-index: 2;
+            text-align: center;
         }
 
-        .checkout-step.active {
-            background: var(--gradient-primary);
+        .step-number {
+            width: 40px;
+            height: 40px;
+            background: var(--gray-light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 0.5rem;
+            font-weight: 600;
+        }
+
+        .checkout-step.active .step-number {
+            background: var(--dark-color);
             color: white;
         }
 
-        .checkout-step.completed {
-            background: var(--gradient-light);
-            color: var(--primary-color);
-        }
-
-        .checkout-content {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 3rem;
-        }
-
         .checkout-form {
-            background: white;
-            padding: 2rem;
+            background: var(--gray-light);
+            padding: 3rem;
             border-radius: var(--radius);
-            box-shadow: var(--shadow);
         }
 
         .form-section {
             margin-bottom: 2rem;
-            padding-bottom: 2rem;
-            border-bottom: 1px solid var(--gray-light);
         }
 
         .form-section h3 {
             margin-bottom: 1.5rem;
-            color: var(--dark-color);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
+            font-size: 1.2rem;
         }
 
         .form-row {
@@ -88,111 +83,59 @@
             margin-bottom: 1rem;
         }
 
-        .payment-methods {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .payment-method {
-            position: relative;
-        }
-
-        .payment-method input {
-            position: absolute;
-            opacity: 0;
-        }
-
-        .payment-method label {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            padding: 1rem;
-            border: 2px solid var(--gray-light);
-            border-radius: var(--radius);
-            cursor: pointer;
-            transition: var(--transition);
-        }
-
-        .payment-method input:checked + label {
-            border-color: var(--primary-color);
-            background: rgba(106, 17, 203, 0.05);
-        }
-
-        .payment-method i {
-            font-size: 2rem;
-            margin-bottom: 0.5rem;
-            color: var(--primary-color);
-        }
-
-        .checkout-summary {
-            background: white;
-            padding: 2rem;
-            border-radius: var(--radius);
-            box-shadow: var(--shadow);
-            height: fit-content;
-            position: sticky;
-            top: 100px;
-        }
-
-        .summary-items {
-            max-height: 300px;
-            overflow-y: auto;
+        .form-group {
             margin-bottom: 1.5rem;
         }
 
-        .summary-item {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 1rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid var(--gray-light);
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
         }
 
-        .coupon-section {
-            margin: 1.5rem 0;
-        }
-
-        .coupon-input {
-            display: flex;
-            gap: 0.5rem;
-            margin-top: 0.5rem;
-        }
-
-        .coupon-input input {
-            flex: 1;
-            padding: 0.8rem;
-            border: 1px solid var(--gray);
-            border-radius: var(--radius);
-        }
-
-        .place-order-btn {
+        .form-group input,
+        .form-group select {
             width: 100%;
             padding: 1rem;
-            background: var(--gradient-primary);
+            border: 1px solid var(--gray);
+            background: white;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .order-summary {
+            margin-top: 3rem;
+            padding: 2rem;
+            background: white;
+            border-radius: var(--radius);
+        }
+
+        .place-order {
+            width: 100%;
+            padding: 1rem;
+            background: var(--dark-color);
             color: white;
             border: none;
-            border-radius: var(--radius);
-            font-weight: 600;
-            font-size: 1.1rem;
             cursor: pointer;
-            transition: var(--transition);
-            margin-top: 1.5rem;
+            margin-top: 2rem;
+            font-size: 1.1rem;
         }
 
-        .place-order-btn:hover {
-            background: linear-gradient(135deg, #5a0db9 0%, #1c68f7 100%);
-            transform: translateY(-3px);
-        }
-
-        @media (max-width: 992px) {
-            .checkout-content {
-                grid-template-columns: 1fr;
+        @media (max-width: 768px) {
+            .checkout-steps {
+                flex-direction: column;
+                gap: 2rem;
+            }
+            
+            .checkout-steps::before {
+                display: none;
             }
             
             .form-row {
                 grid-template-columns: 1fr;
+            }
+            
+            .checkout-form {
+                padding: 2rem 1rem;
             }
         }
     </style>
@@ -203,172 +146,93 @@
 
     <!-- Checkout Container -->
     <div class="checkout-container">
-        <div class="checkout-header">
-            <h1>Оформление заказа</h1>
-            <p>Заполните информацию для завершения покупки</p>
-        </div>
-
-        <!-- Checkout Steps -->
+        <h1>Оформление заказа</h1>
+        
         <div class="checkout-steps">
             <div class="checkout-step active">
-                <i class="fas fa-user"></i>
-                <span>Информация</span>
+                <div class="step-number">1</div>
+                <div>Информация</div>
             </div>
             <div class="checkout-step">
-                <i class="fas fa-truck"></i>
-                <span>Доставка</span>
+                <div class="step-number">2</div>
+                <div>Доставка</div>
             </div>
             <div class="checkout-step">
-                <i class="fas fa-credit-card"></i>
-                <span>Оплата</span>
-            </div>
-            <div class="checkout-step">
-                <i class="fas fa-check"></i>
-                <span>Подтверждение</span>
+                <div class="step-number">3</div>
+                <div>Оплата</div>
             </div>
         </div>
-
-        <div class="checkout-content">
-            <!-- Checkout Form -->
-            <form class="checkout-form" id="checkoutForm">
-                <!-- Personal Information -->
-                <div class="form-section">
-                    <h3><i class="fas fa-user-circle"></i> Персональная информация</h3>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="firstName">Имя *</label>
-                            <input type="text" id="firstName" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="lastName">Фамилия *</label>
-                            <input type="text" id="lastName" required>
-                        </div>
+        
+        <form class="checkout-form" id="checkoutForm">
+            <div class="form-section">
+                <h3>Контактная информация</h3>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="firstName">Имя *</label>
+                        <input type="text" id="firstName" required>
                     </div>
                     <div class="form-group">
-                        <label for="email">Email *</label>
-                        <input type="email" id="email" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="phone">Телефон *</label>
-                        <input type="tel" id="phone" required>
+                        <label for="lastName">Фамилия *</label>
+                        <input type="text" id="lastName" required>
                     </div>
                 </div>
-
-                <!-- Delivery Information -->
-                <div class="form-section">
-                    <h3><i class="fas fa-truck"></i> Информация о доставке</h3>
-                    <div class="form-group">
-                        <label for="address">Адрес *</label>
-                        <input type="text" id="address" required>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="city">Город *</label>
-                            <input type="text" id="city" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="postalCode">Почтовый индекс *</label>
-                            <input type="text" id="postalCode" required>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="deliveryMethod">Способ доставки</label>
-                        <select id="deliveryMethod">
-                            <option value="standard">Стандартная доставка (5-7 дней) - бесплатно</option>
-                            <option value="express">Экспресс доставка (2-3 дня) - 500 ₽</option>
-                            <option value="pickup">Самовывоз из магазина - бесплатно</option>
-                        </select>
-                    </div>
+                <div class="form-group">
+                    <label for="email">Email *</label>
+                    <input type="email" id="email" required>
                 </div>
-
-                <!-- Payment Method -->
-                <div class="form-section">
-                    <h3><i class="fas fa-credit-card"></i> Способ оплаты</h3>
-                    <div class="payment-methods">
-                        <div class="payment-method">
-                            <input type="radio" id="card" name="payment" value="card" checked>
-                            <label for="card">
-                                <i class="fas fa-credit-card"></i>
-                                <span>Банковская карта</span>
-                            </label>
-                        </div>
-                        <div class="payment-method">
-                            <input type="radio" id="cash" name="payment" value="cash">
-                            <label for="cash">
-                                <i class="fas fa-money-bill-wave"></i>
-                                <span>Наличными</span>
-                            </label>
-                        </div>
-                        <div class="payment-method">
-                            <input type="radio" id="online" name="payment" value="online">
-                            <label for="online">
-                                <i class="fas fa-globe"></i>
-                                <span>Онлайн платеж</span>
-                            </label>
-                        </div>
-                    </div>
+                <div class="form-group">
+                    <label for="phone">Телефон *</label>
+                    <input type="tel" id="phone" required>
                 </div>
-
-                <!-- Card Details (shown only when card payment is selected) -->
-                <div class="form-section" id="cardDetails">
-                    <h3><i class="fas fa-credit-card"></i> Данные карты</h3>
-                    <div class="form-group">
-                        <label for="cardNumber">Номер карты *</label>
-                        <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456">
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label for="cardExpiry">Срок действия *</label>
-                            <input type="text" id="cardExpiry" placeholder="MM/YY">
-                        </div>
-                        <div class="form-group">
-                            <label for="cardCVC">CVC *</label>
-                            <input type="text" id="cardCVC" placeholder="123">
-                        </div>
-                    </div>
-                </div>
-            </form>
-
-            <!-- Order Summary -->
-            <div class="checkout-summary">
-                <h2>Ваш заказ</h2>
-                <div class="summary-items" id="orderSummary">
-                    <!-- Order items will be loaded by JavaScript -->
-                </div>
-                
-                <div class="coupon-section">
-                    <label for="coupon">Купон на скидку</label>
-                    <div class="coupon-input">
-                        <input type="text" id="coupon" placeholder="Введите купон">
-                        <button type="button" class="btn-secondary" onclick="applyCoupon()">Применить</button>
-                    </div>
-                </div>
-                
-                <div class="summary-row">
-                    <span>Товары:</span>
-                    <span id="subtotal">0 ₽</span>
-                </div>
-                <div class="summary-row">
-                    <span>Доставка:</span>
-                    <span id="shipping">0 ₽</span>
-                </div>
-                <div class="summary-row">
-                    <span>Скидка:</span>
-                    <span id="discount">0 ₽</span>
-                </div>
-                <div class="summary-row total">
-                    <span>Итого:</span>
-                    <span id="total">0 ₽</span>
-                </div>
-                
-                <button type="submit" form="checkoutForm" class="place-order-btn">
-                    <i class="fas fa-lock"></i> Оформить заказ
-                </button>
-                
-                <p style="text-align: center; margin-top: 1rem; font-size: 0.9rem; color: var(--gray);">
-                    Нажимая кнопку, вы соглашаетесь с условиями обработки персональных данных
-                </p>
             </div>
+            
+            <div class="form-section">
+                <h3>Адрес доставки</h3>
+                <div class="form-group">
+                    <label for="address">Адрес *</label>
+                    <input type="text" id="address" required>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="city">Город *</label>
+                        <input type="text" id="city" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="postalCode">Индекс *</label>
+                        <input type="text" id="postalCode" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="delivery">Способ доставки</label>
+                    <select id="delivery">
+                        <option value="standard">Стандартная (5-7 дней) - Бесплатно</option>
+                        <option value="express">Экспресс (2-3 дня) - 500 ₽</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="form-section">
+                <h3>Способ оплаты</h3>
+                <div class="form-group">
+                    <select id="payment">
+                        <option value="card">Банковская карта</option>
+                        <option value="cash">Наличными при получении</option>
+                        <option value="online">Онлайн платеж</option>
+                    </select>
+                </div>
+            </div>
+        </form>
+        
+        <div class="order-summary">
+            <h3>Ваш заказ</h3>
+            <div id="orderItems">
+                <!-- Order items loaded by JavaScript -->
+            </div>
+            <div class="summary-row">
+                <span>Итого:</span>
+                <span id="orderTotal">0 ₽</span>
+            </div>
+            <button type="submit" form="checkoutForm" class="place-order">Оформить заказ</button>
         </div>
     </div>
 
@@ -395,18 +259,8 @@
                     document.getElementById('footer').innerHTML = data;
                 });
 
-            // Загрузка данных корзины
             loadOrderSummary();
             
-            // Показ/скрытие деталей карты
-            document.querySelectorAll('input[name="payment"]').forEach(radio => {
-                radio.addEventListener('change', function() {
-                    const cardDetails = document.getElementById('cardDetails');
-                    cardDetails.style.display = this.value === 'card' ? 'block' : 'none';
-                });
-            });
-            
-            // Обработка формы
             document.getElementById('checkoutForm').addEventListener('submit', function(e) {
                 e.preventDefault();
                 processOrder();
@@ -415,56 +269,32 @@
 
         function loadOrderSummary() {
             const cart = JSON.parse(localStorage.getItem('cart')) || [];
-            const summaryContainer = document.getElementById('orderSummary');
-            let subtotal = 0;
+            const container = document.getElementById('orderItems');
+            let total = 0;
             
             if (cart.length === 0) {
-                summaryContainer.innerHTML = '<p>Корзина пуста</p>';
+                container.innerHTML = '<p>Корзина пуста</p>';
                 return;
             }
             
-            summaryContainer.innerHTML = '';
+            let html = '';
             cart.forEach(item => {
                 const itemTotal = item.price * item.quantity;
-                subtotal += itemTotal;
+                total += itemTotal;
                 
-                const itemHTML = `
-                    <div class="summary-item">
+                html += `
+                    <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
                         <div>
-                            <strong>${item.name}</strong>
-                            <div style="font-size: 0.9rem; color: var(--gray);">${item.quantity} × ${item.price.toLocaleString()} ₽</div>
+                            <div>${item.name}</div>
+                            <div style="font-size: 0.9rem; color: var(--gray-dark);">${item.quantity} × ${item.price.toLocaleString()} ₽</div>
                         </div>
-                        <strong>${itemTotal.toLocaleString()} ₽</strong>
+                        <div>${itemTotal.toLocaleString()} ₽</div>
                     </div>
                 `;
-                summaryContainer.innerHTML += itemHTML;
             });
             
-            document.getElementById('subtotal').textContent = subtotal.toLocaleString() + ' ₽';
-            calculateTotal(subtotal);
-        }
-
-        function calculateTotal(subtotal) {
-            const deliverySelect = document.getElementById('deliveryMethod');
-            const shipping = deliverySelect.value === 'express' ? 500 : 0;
-            const discount = parseFloat(document.getElementById('discount').textContent) || 0;
-            const total = subtotal + shipping - discount;
-            
-            document.getElementById('shipping').textContent = shipping.toLocaleString() + ' ₽';
-            document.getElementById('total').textContent = total.toLocaleString() + ' ₽';
-        }
-
-        function applyCoupon() {
-            const coupon = document.getElementById('coupon').value;
-            if (coupon === 'CRUSHERS10') {
-                const subtotal = parseFloat(document.getElementById('subtotal').textContent.replace(/[^\d]/g, ''));
-                const discount = subtotal * 0.1;
-                document.getElementById('discount').textContent = discount.toLocaleString() + ' ₽';
-                calculateTotal(subtotal);
-                showToast('Купон успешно применен!', 'success');
-            } else {
-                showToast('Неверный купон', 'error');
-            }
+            container.innerHTML = html;
+            document.getElementById('orderTotal').textContent = total.toLocaleString() + ' ₽';
         }
 
         function processOrder() {
